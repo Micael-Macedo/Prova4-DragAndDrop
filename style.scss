@@ -97,6 +97,20 @@ nav{
                     color: whitesmoke;
                 }
             }
+            div{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1rem;
+                label{
+                    margin-bottom: 10px;
+                }
+            }
+            button{
+                background-color: blueviolet;
+                border: none;
+                height: 3rem;
+                color: whitesmoke;
+            }
         }
         .modal-footer{
             padding: 1rem;
@@ -270,4 +284,7 @@ button{
         background-color: #023047;
         transform: scale(1.2);
     }
+}
+.column{
+    flex-direction: column;
 }

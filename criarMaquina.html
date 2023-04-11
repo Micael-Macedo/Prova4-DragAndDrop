@@ -29,7 +29,7 @@
         <section>
             <div class="header">
                 <h1>Criar Nova máquina</h1>
-                <button onclick="salvarMaquina()">Salvar Máquina</button>
+                <button onclick="openModal('#imagemMaquina')">Salvar Máquina</button>
             </div>
             <div class="grid" id="buildMachine">
                 <div class="listarPecas flex">
@@ -117,6 +117,84 @@
         </section>
         <section>
             <div id="tutorial">
+                <div class="modal flex" id="apresentacao" style="display: none;">
+                    <div class="modal-card">
+
+                        <div class="modal-body flex column">
+                            <div class="column">
+                                <label for="">Bem vindo ao recurso de criação de máquinas, ele é um pouco complicado e
+                                    por isso estou aqui para ajudar</label>
+                            </div>
+                            <div class="buttonOptions">
+                                <button onclick="closeModal()">Pular</button>
+                                <button disabled>Anterior</button>
+                                <button onclick="openModal('#tiposPecas')">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal flex" id="tiposPecas" style="display: none;">
+                    <div class="modal-card">
+                        <div class="modal-body flex column">
+                            <div class="column">
+                                <p>Primeiro, selecione a peça desejada no campo destacado.</p>
+                            </div>
+                            <div class="buttonOptions">
+                                <button onclick="closeModal()">Pular</button>
+                                <button onclick="openModal()">Anterior</button>
+                                <button onclick="openModal('#arrastarPecas')">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal flex" id="arrastarPecas" style="display: none;">
+                    <div class="modal-card">
+                        <div class="modal-card">
+                            <div class="modal-body flex column">
+                                <div class="column">
+                                    <label for="">Segundo, clique e arraste uma peça para a sua área.</label>
+                                </div>
+                                <div class="buttonOptions">
+                                    <button onclick="closeModal()">Pular</button>
+                                    <button onclick="openModal('#tiposPecas')">Anterior</button>
+                                    <button onclick="openModal('#salvarPecas')">Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal flex" id="salvarPecas" style="display: none;">
+                    <div class="modal-card">
+                        <div class="modal-card">
+                            <div class="modal-body flex column">
+                                <div class="column">
+                                    <p>Depois de colocar todas as peças, clique em salvar.</p>
+                                </div>
+                                <div class="buttonOptions">
+                                    <button onclick="closeModal()">Pular</button>
+                                    <button onclick="openModal('#arrastarPecas')">Anterior</button>
+                                    <button onclick="openModal('#escolhaImagem')">Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal flex" id="escolhaImagem" style="display: none;">
+                    <div class="modal-card">
+                        <div class="modal-card">
+                            <div class="modal-body flex column">
+                                <div class="column">
+                                    <label for="">Ao clicar em salvar imagem, um model de seleção de imagem abrirá</label>
+                                </div>
+                                <div class="buttonOptions">
+                                    <button onclick="closeModal()">Pular</button>
+                                    <button onclick="openModal('#salvarPecas')">Anterior</button>
+                                    <button onclick="closeModal()" disabled>Próximo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="modal flex" id="imagemMaquina" style="display: none;">
@@ -125,16 +203,16 @@
                         <h2>Enviar Imagem</h2>
                     </div>
                     <div class="modal-body flex">
-                        <form action="" class="flex">
-                            <div>
+                        <div>
+                            <div class="column">
                                 <label for="">Imagem da Máquina</label>
                                 <input type="file" name="" id="arquivoMaquina" onchange="converterImagem(this)">
                             </div>
                             <div class="buttonOptions">
                                 <button onclick="closeModal()">Fechar</button>
-                                <button>Comprar</button>
+                                <button onclick="openModal('#pagamentoModal')">Salvar</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

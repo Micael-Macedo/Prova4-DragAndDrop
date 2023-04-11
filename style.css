@@ -102,6 +102,20 @@ nav ul a:hover {
   height: 3rem;
   color: whitesmoke;
 }
+.modal .modal-card .modal-body div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.modal .modal-card .modal-body div label {
+  margin-bottom: 10px;
+}
+.modal .modal-card .modal-body button {
+  background-color: blueviolet;
+  border: none;
+  height: 3rem;
+  color: whitesmoke;
+}
 .modal .modal-card .modal-footer {
   padding: 1rem;
 }
@@ -276,4 +290,8 @@ button {
 button:hover {
   background-color: #023047;
   transform: scale(1.2);
+}
+
+.column {
+  flex-direction: column;
 }/*# sourceMappingURL=style.css.map */
