@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>Alatech</li>
+                <li>Login</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div>
+                <label for="">username</label>
+                <input type="text" required id="username">
+            </div>
+            <div>
+                <label for="">senha</label>
+                <input type="password" required id="password">
+            </div>
+            <button onclick="validarLogin()">Login</button>
+        </section>
+        <div class="modal flex">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h2>Login invalido</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Digite as credenciais corretas</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeModal()">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

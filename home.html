@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Alatech</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+            <ul class="navList">
+                <li><button onclick="buscarProduto('machines', this)" class="active">Máquinas</button></li>
+                <li><button onclick="buscarProduto('motherboard', this)">Placas Mãe</button></li>
+                <li><button onclick="buscarProduto('processors', this)">Processadores</button></li>
+                <li><button onclick="buscarProduto('ram-memories', this)">Memoria Ram</button></li>
+                <li><button onclick="buscarProduto('graphic-card', this)">Placas de Vídeo</button></li>
+                <li><button onclick="buscarProduto('storage-devices', this)">Dispositivos de Armazenamento</button></li>
+                <li><button onclick="buscarProduto('power-supplies', this)">fonte de alimentação</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="allProdutos">
+            <div class="header">
+
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

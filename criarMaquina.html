@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html"> Alatech</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="header">
+                <h1>Criar Nova máquina</h1>
+                <button onclick="salvarMaquina()">Salvar Máquina</button>
+            </div>
+            <div class="grid" id="buildMachine">
+                <div class="listarPecas flex">
+                    <select name="" id="selectPecas">
+                        <option disabled selected></option>
+                        <option value="power-supplies" >Fontes</option>
+                        <option value="motherboard">Placas-mãe</option>
+                        <option value="processors" disabled>Processadores</option>
+                        <option value="ram-memories" disabled>Memorias Ram</option>
+                        <option value="graphic-cards" disabled>Placas de vídeo</option>
+                        <option value="storage-devices" disabled>Armazenamento</option>
+                    </select>
+                    <div id="listPecas">
+                      
+                    </div>
+                </div>
+                <div class="pecasMontagem flex">
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Placa-Mãe</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div class="dropzone" id="motherboard">
+
+                        </div>
+                    </div>
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Processador</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div class="dropzone" id="processors">
+                            
+                        </div>
+                    </div>
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Memoria Ram</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div>
+                            <div class="dropzone" id="ram-memories">
+                            
+                            </div>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Placa de video</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div class="dropzone" id="graphic-cards">
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Fonte de Alimentação</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div class="dropzone" id="power-supplies">
+                            
+                        </div>
+                    </div>
+                    <div class="peca">
+                        <div class="header">
+                            <h2>Dispositivos de Armazenamento</h2>
+                            <button onclick="removerProduto(this)">Remover</button>
+                        </div>
+                        <div>
+                            <div class="dropzone" id="storage-devices"></div>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="modal flex" id="pagamentoModal">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h2>Comprar Máquina</h2>
+                </div>
+                <div class="modal-body flex">
+                    <form action="" class="flex">
+                        <div class="flex">
+                            <label for="">Nome</label>
+                            <input type="text">
+                        </div>
+                        <div class="flex">
+                            <label for="">CPF</label>
+                            <input type="text">
+                        </div>
+                        <div class="flex">
+                            <label for="">Numero do Cartão</label>
+                            <input type="text">
+                        </div>
+                        <div class="flex">
+                            <label for="">Data de Validade</label>
+                            <input type="text">
+                        </div>
+                        <div class="flex">
+                            <label for="">Codigo de segurança</label>
+                            <input type="password">
+                        </div>
+                        <div class="flex">
+                            <label for="">Data de nascimento</label>
+                            <input type="datetime">
+                        </div>
+                        <button onclick="closeModal()">Fechar</button>
+                        <button>Comprar</button>
+                    </form>
+                </div>
+            </div>
+          
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

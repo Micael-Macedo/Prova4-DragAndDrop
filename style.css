@@ -1,0 +1,154 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+* a {
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #F4A259;
+  padding: 2% 2% 0% 2%;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex {
+  display: flex;
+}
+
+.navList {
+  margin-top: 20px;
+}
+.navList button {
+  width: 120px;
+  height: 50px;
+  transition: 0.3s;
+  border: none;
+  border-radius: 10px 10px 0px 0px;
+  cursor: pointer;
+}
+.navList button.active {
+  background-color: aqua;
+}
+
+@keyframes toBottom {
+  to {
+    transform: translateY(-200%);
+  }
+  from {
+    transform: translateY(0%);
+  }
+}
+.modal {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.modal .modal-card {
+  background-color: white;
+  margin: auto;
+  border-radius: 5px;
+}
+.modal .modal-card .modal-header {
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 5px 5px 0px 0px;
+  background-color: blue;
+}
+.modal .modal-card .modal-body {
+  padding: 1rem;
+}
+.modal .modal-card .modal-body form {
+  width: 100%;
+  flex-direction: column;
+}
+.modal .modal-card .modal-body form div {
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.modal .modal-card .modal-body form button {
+  background-color: blueviolet;
+  border: none;
+  height: 3rem;
+  color: whitesmoke;
+}
+.modal .modal-card .modal-footer {
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+.header a {
+  font-size: 1.4rem;
+  transition: 0.4s;
+  color: blue;
+}
+.header a:hover {
+  color: #F4A259;
+}
+
+#buildMachine .listarPecas {
+  width: 300px;
+  grid-area: listPecas;
+  flex-direction: column;
+}
+#buildMachine .listarPecas #listPecas {
+  height: 70vh;
+  padding: 5%;
+  border: 2px solid #000000;
+  overflow: auto;
+}
+#buildMachine .pecasMontagem {
+  grid-area: montagem;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#buildMachine .pecasMontagem .peca {
+  width: 350px;
+  background-color: aquamarine;
+}
+#buildMachine .pecasMontagem .peca .dropzone {
+  background-color: #000000;
+  height: 300px;
+  transition: 0.4s;
+}
+#buildMachine .pecasMontagem .peca .dropzone.highlight {
+  background-color: green;
+}
+#buildMachine .pecasMontagem .peca .dropzone img {
+  width: 100%;
+}
+
+.produto {
+  cursor: pointer;
+  width: 100%;
+  border: 2px solid blueviolet;
+}
+.produto img {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-areas: "listPecas montagem montagem";
+  gap: 30px;
+}/*# sourceMappingURL=style.css.map */
