@@ -97,7 +97,7 @@ function validarLogin() {
     }
     console.log(body);
     if (body.username != "" && body.password != "") {
-        window.location.href = "http://127.0.0.1:5500/home.html";
+        window.location.href = "/home.html";
         let result = fetch("localhost/alatech/api/login", body)
             .then(r => { return r.json })
             .catch(e => { return false })
