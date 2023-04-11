@@ -7,29 +7,44 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/71290ec34f.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li>Alatech</li>
-                <li>Login</li>
+                <li><a href="home.html"> Alatech</a></li>
+                <li><a href="index.html">Login</a></li>
             </ul>
+
         </nav>
     </header>
     <main>
         <section>
-            <div>
-                <label for="">username</label>
-                <input type="text" required id="username">
+            <div class="formLogin">
+                <div>
+                    <h1>Login</h1>
+                </div>
+                <div>
+                    <label for="">username</label>
+                    <input type="text" required id="username">
+                </div>
+                <div>
+                    <label for="">senha</label>
+                    <div class="input-inline">
+                        <input type="password" required id="password">
+                        <button title="mostrar senha" onclick="toggleSenha()"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                <div class="buttonOptions">
+                    <button onclick="validarLogin()">Login</button>
+                </div>
             </div>
-            <div>
-                <label for="">senha</label>
-                <input type="password" required id="password">
-            </div>
-            <button onclick="validarLogin()">Login</button>
         </section>
-        <div class="modal flex">
+        <div class="modal flex" style="display: none;">
             <div class="modal-card">
                 <div class="modal-header">
                     <h2>Login invalido</h2>
@@ -38,7 +53,9 @@
                     <p>Digite as credenciais corretas</p>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="closeModal()">Fechar</button>
+                    <div class="buttonOptions">
+                        <button onclick="closeModal()">Fechar</button>
+                    </div>
                 </div>
             </div>
         </div>

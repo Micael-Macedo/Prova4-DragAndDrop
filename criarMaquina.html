@@ -8,6 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -30,7 +35,7 @@
                 <div class="listarPecas flex">
                     <select name="" id="selectPecas">
                         <option disabled selected></option>
-                        <option value="power-supplies" >Fontes</option>
+                        <option value="power-supplies">Fontes</option>
                         <option value="motherboard">Placas-mãe</option>
                         <option value="processors" disabled>Processadores</option>
                         <option value="ram-memories" disabled>Memorias Ram</option>
@@ -38,7 +43,7 @@
                         <option value="storage-devices" disabled>Armazenamento</option>
                     </select>
                     <div id="listPecas">
-                      
+
                     </div>
                 </div>
                 <div class="pecasMontagem flex">
@@ -57,7 +62,7 @@
                             <button onclick="removerProduto(this)">Remover</button>
                         </div>
                         <div class="dropzone" id="processors">
-                            
+
                         </div>
                     </div>
                     <div class="peca">
@@ -67,9 +72,12 @@
                         </div>
                         <div>
                             <div class="dropzone" id="ram-memories">
-                            
+
                             </div>
-                            <input type="number">
+                            <div class="inputQtd">
+                                <label for="quantidade">Quantidade</label>
+                                <input type="number">
+                            </div>
                         </div>
                     </div>
                     <div class="peca">
@@ -78,9 +86,9 @@
                             <button onclick="removerProduto(this)">Remover</button>
                         </div>
                         <div class="dropzone" id="graphic-cards">
-                            
+
                         </div>
-                        
+
                     </div>
                     <div class="peca">
                         <div class="header">
@@ -88,7 +96,7 @@
                             <button onclick="removerProduto(this)">Remover</button>
                         </div>
                         <div class="dropzone" id="power-supplies">
-                            
+
                         </div>
                     </div>
                     <div class="peca">
@@ -98,49 +106,79 @@
                         </div>
                         <div>
                             <div class="dropzone" id="storage-devices"></div>
-                            <input type="number">
+                            <div class="inputQtd">
+                                <label for="quantidade">Quantidade</label>
+                                <input type="number">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="modal flex" id="pagamentoModal">
-            <div class="modal-card">
-                <div class="modal-header">
-                    <h2>Comprar Máquina</h2>
-                </div>
-                <div class="modal-body flex">
-                    <form action="" class="flex">
-                        <div class="flex">
-                            <label for="">Nome</label>
-                            <input type="text">
-                        </div>
-                        <div class="flex">
-                            <label for="">CPF</label>
-                            <input type="text">
-                        </div>
-                        <div class="flex">
-                            <label for="">Numero do Cartão</label>
-                            <input type="text">
-                        </div>
-                        <div class="flex">
-                            <label for="">Data de Validade</label>
-                            <input type="text">
-                        </div>
-                        <div class="flex">
-                            <label for="">Codigo de segurança</label>
-                            <input type="password">
-                        </div>
-                        <div class="flex">
-                            <label for="">Data de nascimento</label>
-                            <input type="datetime">
-                        </div>
-                        <button onclick="closeModal()">Fechar</button>
-                        <button>Comprar</button>
-                    </form>
+        <section>
+            <div id="tutorial">
+
+            </div>
+            <div class="modal flex" id="imagemMaquina" style="display: none;">
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <h2>Enviar Imagem</h2>
+                    </div>
+                    <div class="modal-body flex">
+                        <form action="" class="flex">
+                            <div>
+                                <label for="">Imagem da Máquina</label>
+                                <input type="file" name="" id="arquivoMaquina" onchange="converterImagem(this)">
+                            </div>
+                            <div class="buttonOptions">
+                                <button onclick="closeModal()">Fechar</button>
+                                <button>Comprar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-          
+            </div>
+            <div class="modal flex" id="pagamentoModal" style="display: none;">
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <h2>Comprar Máquina</h2>
+                    </div>
+                    <div class="modal-body flex">
+                        <form action="" class="flex">
+                            <div class="flex">
+                                <label for="">Nome</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="">CPF</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="">Numero do Cartão</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="">Data de Validade</label>
+                                <input type="text">
+                            </div>
+                            <div class="flex">
+                                <label for="">Codigo de segurança</label>
+                                <input type="password">
+                            </div>
+                            <div class="flex">
+                                <label for="">Data de nascimento</label>
+                                <input type="datetime">
+                            </div>
+                            <div class="buttonOptions">
+                                <button onclick="closeModal()">Fechar</button>
+                                <button>Comprar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
     <script src="script.js"></script>

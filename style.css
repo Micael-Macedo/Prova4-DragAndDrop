@@ -4,6 +4,7 @@
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  font-family: "Schibsted Grotesk", sans-serif;
 }
 * a {
   text-decoration: none;
@@ -13,12 +14,21 @@ nav {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #F4A259;
+  background-color: #e76f51;
   padding: 2% 2% 0% 2%;
 }
 nav ul {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
+}
+nav ul a {
+  color: white;
+  font-size: 2rem;
+  transition: 0.4s;
+}
+nav ul a:hover {
+  color: #264653;
 }
 
 .flex {
@@ -27,6 +37,7 @@ nav ul {
 
 .navList {
   margin-top: 20px;
+  margin-bottom: 0% !important;
 }
 .navList button {
   width: 120px;
@@ -35,6 +46,9 @@ nav ul {
   border: none;
   border-radius: 10px 10px 0px 0px;
   cursor: pointer;
+}
+.navList button:hover {
+  transform: translateY(-10px);
 }
 .navList button.active {
   background-color: aqua;
@@ -49,7 +63,7 @@ nav ul {
   }
 }
 .modal {
-  position: absolute;
+  position: fixed;
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100vh;
@@ -75,8 +89,12 @@ nav ul {
   flex-direction: column;
 }
 .modal .modal-card .modal-body form div {
+  display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+}
+.modal .modal-card .modal-body form div label {
+  margin-bottom: 10px;
 }
 .modal .modal-card .modal-body form button {
   background-color: blueviolet;
@@ -94,16 +112,45 @@ nav ul {
   align-items: center;
   margin-top: 1rem;
   padding: 1rem;
+  font-size: 0.8rem;
+  height: 60px;
 }
-.header a {
-  font-size: 1.4rem;
-  transition: 0.4s;
-  color: blue;
-}
-.header a:hover {
-  color: #F4A259;
+.header button {
+  margin: 0%;
+  width: 70px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
+.allPieces {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  margin: 50px 0;
+}
+.allPieces .produto {
+  margin: 0;
+  width: 400px;
+  height: 300px;
+  color: black;
+  text-align: center;
+  border: none;
+  border: 2px solid #023047;
+  transition: 0.6s;
+}
+.allPieces .produto:hover {
+  transform: scale(1.2);
+}
+.allPieces .produto img {
+  height: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: auto;
+}
+
+#buildMachine {
+  padding: 10px;
+}
 #buildMachine .listarPecas {
   width: 300px;
   grid-area: listPecas;
@@ -118,24 +165,39 @@ nav ul {
 #buildMachine .pecasMontagem {
   grid-area: montagem;
   gap: 10px;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
 #buildMachine .pecasMontagem .peca {
   width: 350px;
-  background-color: aquamarine;
+  background-color: #e76f51;
 }
 #buildMachine .pecasMontagem .peca .dropzone {
   background-color: #000000;
   height: 300px;
   transition: 0.4s;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #buildMachine .pecasMontagem .peca .dropzone.highlight {
   background-color: green;
 }
-#buildMachine .pecasMontagem .peca .dropzone img {
-  width: 100%;
+#buildMachine .pecasMontagem .peca .dropzone .produto {
+  height: 300px;
+  color: white;
+  text-align: center;
+  border: none;
+}
+#buildMachine .pecasMontagem .peca .dropzone .produto img {
+  width: 80%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin: auto;
+}
+#buildMachine .pecasMontagem .peca .inputQtd {
+  margin: 5px;
 }
 
 .produto {
@@ -151,4 +213,67 @@ nav ul {
   display: grid;
   grid-template-areas: "listPecas montagem montagem";
   gap: 30px;
+}
+
+.formLogin {
+  margin: auto;
+  width: 500px;
+  padding: 20px;
+  border: 2px solid #e76f51;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.formLogin h1 {
+  font-size: 3rem;
+}
+.formLogin div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.formLogin div label {
+  font-size: 2rem;
+}
+.formLogin div div.input-inline {
+  display: flex;
+  flex-direction: row;
+}
+.formLogin div div.input-inline input {
+  width: 90%;
+}
+.formLogin div div.input-inline button {
+  width: 10% !important;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+}
+.formLogin div input {
+  height: 40px;
+  font-size: 1.5rem;
+  padding: 2px 10px;
+}
+
+.buttonOptions {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  gap: 10px;
+}
+.buttonOptions button {
+  cursor: pointer;
+  margin: 0;
+}
+
+button {
+  margin: auto;
+  width: 200px;
+  height: 40px;
+  margin: auto;
+  background-color: #264653;
+  color: white;
+  transition: 0.5s;
+}
+button:hover {
+  background-color: #023047;
+  transform: scale(1.2);
 }/*# sourceMappingURL=style.css.map */

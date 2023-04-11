@@ -1,30 +1,53 @@
+function toggleSenha(){
+    let senha = $("#password");
+    console.log(senha.get(0).type);
+    if(senha.get(0).type == "text"){
+        $(senha).get(0).type = "password";
+    }else{
+        $(senha).get(0).type = "text";
+    }
+}
 function buscarProduto(produto, botao) {
     console.log(produto);
+    $('.allPieces').empty()
     if(produto == "machines"){
-     $('#allProdutos .header').append(
-         "<a href='criarMaquina.html'>Criar nova máquina</a> "
-     )
-    }else{
-        $(".header").empty();
-    }
+        $('.createMachine').append(
+            "<a href='criarMaquina.html'>Criar nova máquina</a> "
+            )
+        }else{
+            $(".createMachine").empty();
+        }
     $(".navList button").removeClass("active");
     $(botao).addClass("active");
    let result = fetch(`localhost/alatech/api/${produto}`)
    .then(r => {return r.json})
    .catch(e => {return false});
    if(result){
-    $('#listPecas').empty();
-    result.forEach(produto => {        
-        $('#allProdutos').append(
-        `<div class="produto" title="Nome = ${produto.nome} Marca = ${produto.marca}">
-            <img src="${produto.img}" alt="">
-            <div>
-                <h2>${produto.id}</h2>
-                <button></button>
-            </div>
+    // result.forEach(produto => {        
+    //     $('#allProdutos').append(
+    //     `<div class="produto" title="Nome = ${produto.nome} Marca = ${produto.marca}">
+    //         <img src="${produto.img}" alt="">
+    //         <div>
+    //             <h2>${produto.id}</h2>
+    //             <button></button>
+    //         </div>
+    //     </div>`
+    //     );
+    // });
+    $('.allPieces').append(
+        `<div class="produto" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produto}')" draggable="true" name="${produto}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
+        <img src="images/1.png" alt="">
+        <div>
+        <h2>${produto} Bacana1</h2>
+        </div>
+        </div>
+        <div class="produto" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produto}')" draggable="true" name="${produto}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
+        <img src="images/1.png" alt="">
+        <div>
+        <h2>${produto} Bacana2</h2>
+        </div>
         </div>`
-        );
-    });
+    )
    }
 }
 function listarProduto() {
@@ -96,7 +119,7 @@ $("#selectPecas").on('change', function () {
     listarProduto();
 });
 function salvarMaquina(){
-    $("#pagamentoModal").show();
+    $("#imagemMaquina").show();
 }
 function selectProduto(Produto, tipo){
    $(`#${tipo}`).append(Produto);
@@ -111,6 +134,7 @@ function removerProduto(produto){
     let dropzone = $(button).find(".dropzone");
     $(listPecas).append(dropzone.firstElementChild)
     $(dropzone).empty();
+    listarProduto();
 }
 
 function dragstart(item) {
