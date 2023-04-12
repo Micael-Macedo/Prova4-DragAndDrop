@@ -260,20 +260,21 @@ function comprarMaquina() {
         cvv: document.getElementById("cvv").value,
         nasc: document.getElementById("nasc").value,
     }
-    document.cookie = compra;
+    document.cookie = JSON.stringify(compra);
     window.location.href = "/compra.html";
 }
 function loadCompra() {
-    console.log(compra);
+    compras = document.cookie.split(";")
+    compra = JSON.parse(compras[compras.length-1]);
     $("#dadosCompra").append(
         `<h2>Dados da compra</h2>
-                <p>Nome = ${compra.nome}</p>
-                <p>nascimento = ${compra.nasc}</p>
-                <p>cpf = ${compra.cpf}</p>
-                <p>numero do cartao = ${compra.numCartao}</p>
-                <p>Data de Validade = ${compra.validade}</p>
-                <p>cvv = ${compra.cvv}</p>
-                <p>Data Nascimento = ${compra.nasc}</p>`
+                <p>Nome: ${compra.nome}</p>
+                <p>nascimento: ${compra.nasc}</p>
+                <p>cpf: ${compra.cpf}</p>
+                <p>numero do cartao: ${compra.numCartao}</p>
+                <p>Data de Validade: ${compra.validade}</p>
+                <p>cvv: ${compra.cvv}</p>
+                <p>Data Nascimento: ${compra.nasc}</p>`
     );
 }
 
