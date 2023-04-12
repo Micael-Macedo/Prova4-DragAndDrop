@@ -120,6 +120,19 @@ nav ul a:hover {
   padding: 1rem;
 }
 
+.popover {
+  display: none;
+  position: absolute;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 10px;
+  top: 10px;
+  left: 40px;
+}
+.popover.show {
+  display: flex;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -143,6 +156,7 @@ nav ul a:hover {
   margin: 50px 0;
 }
 .allPieces .produto {
+  position: relative;
   margin: 0;
   width: 400px;
   height: 300px;
@@ -176,6 +190,9 @@ nav ul a:hover {
   border: 2px solid #000000;
   overflow: auto;
 }
+#buildMachine .listarPecas #listPecas .produto {
+  position: relative;
+}
 #buildMachine .pecasMontagem {
   grid-area: montagem;
   gap: 10px;
@@ -203,6 +220,7 @@ nav ul a:hover {
   color: white;
   text-align: center;
   border: none;
+  position: relative;
 }
 #buildMachine .pecasMontagem .peca .dropzone .produto img {
   width: 80%;

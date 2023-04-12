@@ -119,6 +119,18 @@ nav{
    
 
 }
+.popover{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 10px;
+    top: 10px;
+    left: 40px;
+    &.show{
+        display: flex;
+    }
+}
 .header{
     display: flex;
     justify-content: space-between;
@@ -141,6 +153,7 @@ nav{
     justify-content: center;
     margin: 50px 0;
     .produto{
+        position: relative;
         margin: 0;
         width: 400px;
         height: 300px;
@@ -170,6 +183,9 @@ nav{
             padding: 5%;
             border: 2px solid #000000;
             overflow: auto;
+            .produto{
+                position: relative;
+            }
             
         }
     }
@@ -197,6 +213,7 @@ nav{
                     color: white;
                     text-align: center;
                     border: none;
+                    position: relative;
                     img{
                         width: 80%;
                         object-fit: contain;
