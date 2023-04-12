@@ -172,28 +172,30 @@ function verificarPecas() {
         $("option").attr("disabled", false)
     }
 }
-IMask(document.querySelector("#cpf"),{
-    mask: '000.000.000-00'
+const cpf = document.querySelector("#cpf")
+const cvv = document.querySelector("#cvv")
+const numCartao = document.querySelector("#numCartao")
+const validade = document.querySelector("#validade")
+
+cpf.addEventListener('keypress', () =>{
+    let inputLength = cpf.value.length
+    if(inputLength === 3 || inputLength === 7){
+        cpf.value += "."
+    }
+    if(inputLength === 11){
+        cpf.value += "-"
+    }
 })
-IMask(document.querySelector("#cvv"),{
-    mask: '000'
+numCartao.addEventListener('keypress', () =>{
+    let inputLength = numCartao.value.length
+    if(inputLength === 4 || inputLength === 9 || inputLength === 14){
+        numCartao.value += " "
+    }
 })
-IMask(document.querySelector("#numCartao"),{
-    mask: '0000-0000-0000-0000'
-})
-IMask(document.querySelector("#validade"),{
-    mask: 'MM{/}YY',
-    blocks:{
-        MM:{
-            mask: IMask.MaskedRange,
-            from:1,
-            to:12
-        },
-        YY:{
-            mask: IMask.MaskedRange,
-            from:23,
-            to:33
-        }
+validade.addEventListener('keypress', () =>{
+    let inputLength = validade.value.length
+    if(inputLength === 2){
+        validade.value += "/"
     }
 })
 function removerProduto(produto) {
