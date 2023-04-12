@@ -178,27 +178,39 @@ nav{
     }
 }
 #buildMachine{
+    display: flex;
     padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+   
     .listarPecas{
-        width: 300px;
-        grid-area: listPecas;
+        min-width: 300px;
         flex-direction: column;
-        #listPecas{
-            height: 70vh;
-            padding: 5%;
-            border: 2px solid #000000;
-            overflow: auto;
-            .produto{
-                position: relative;
+        position: relative;
+        .inputFollow{
+            width: 300px;
+            position: fixed;
+            background-color: white;
+            #selectPecas{
+                width: 100%;
             }
-            
+            #listPecas{
+                width: 100%;
+                height: 70vh;
+                padding: 5%;
+                border: 2px solid #000000;
+                overflow: auto;
+                .produto{
+                    position: relative;
+                }
+            }
         }
     }
     .pecasMontagem{
-        grid-area: montagem;
         gap: 10px;
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: end;
+        width: 100%;
         .peca{
             width: 350px;
             background-color: #e76f51;
@@ -224,6 +236,9 @@ nav{
                         object-fit: contain;
                         margin: auto;
                     }
+                    .popover{
+                        color: black;
+                    }
                 }
             }
             .inputQtd{
@@ -240,13 +255,7 @@ nav{
         width: 100%;
     }
 }
-.grid{
-    display: grid;
-    grid-template-areas: 
-    'listPecas montagem montagem'
-    ;
-    gap: 30px;
-}
+
 .formLogin{
     margin: auto;
     width: 500px;
