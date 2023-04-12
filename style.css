@@ -295,6 +295,9 @@ nav ul a:hover {
   cursor: pointer;
   margin: 0;
 }
+.buttonOptions p {
+  cursor: pointer;
+}
 
 button {
   margin: auto;

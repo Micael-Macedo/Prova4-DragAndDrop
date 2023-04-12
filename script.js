@@ -152,6 +152,7 @@ $(document).ready(function () {
     $(".navList li").html()
     openModal('#apresentacao')
     buscarProduto("machines");
+    loadCompra();
 });
 function closeModal() {
     $('.modal').hide();
@@ -228,18 +229,17 @@ function dragover() {
         this.appendChild(pecaBeingDragging);
     }
 }
-function popover(peca){
+function popover(peca) {
     $(peca).children(".popover").addClass("show");
 }
-function hidePopover(peca){
+function hidePopover(peca) {
     $(peca).children(".popover").removeClass("show");
 }
 
 const $file = document.querySelector("#arquivoMaquina");
 $file.addEventListener("change", (event) => {
     const selectedfile = event.target.files;
-    if (selectedfile.length > 0) 
-    {
+    if (selectedfile.length > 0) {
         const [imageFile] = selectedfile;
         const fileReader = new FileReader();
         fileReader.onload = () => {
@@ -249,5 +249,32 @@ $file.addEventListener("change", (event) => {
         fileReader.readAsDataURL(imageFile);
     }
 });
+compra = {}
+function comprarMaquina() {
+    compra = {
+        nome: document.getElementById("nome").value,
+        nasc: document.getElementById("nasc").value,
+        cpf: document.getElementById("cpf").value,
+        numCartao: document.getElementById("numCartao").value,
+        validade: document.getElementById("validade").value,
+        cvv: document.getElementById("cvv").value,
+        nasc: document.getElementById("nasc").value,
+    }
+    document.cookie = compra;
+    window.location.href = "/compra.html";
+}
+function loadCompra() {
+    console.log(compra);
+    $("#dadosCompra").append(
+        `<h2>Dados da compra</h2>
+                <p>Nome = ${compra.nome}</p>
+                <p>nascimento = ${compra.nasc}</p>
+                <p>cpf = ${compra.cpf}</p>
+                <p>numero do cartao = ${compra.numCartao}</p>
+                <p>Data de Validade = ${compra.validade}</p>
+                <p>cvv = ${compra.cvv}</p>
+                <p>Data Nascimento = ${compra.nasc}</p>`
+    );
+}
 
 
