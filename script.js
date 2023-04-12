@@ -34,41 +34,8 @@ function buscarProduto(produto, botao) {
         //     </div>`
         //     );
         // });
-        $('.allPieces').append(
-            `<div class="produto" onmouseover="popover(this)" onmouseleave="hidePopover(this)" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produto}')"     draggable="true" name="${produto}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
-                    <img src="images/1.png" alt="">
-                    <div>
-                        <h2>${produto} Bacana1</h2>
-                    </div>
-                       <span class="popover flex column">
-                        <div>
-                            <h2>Nome</h2>
-                            <p>Nome</p>
-                        </div>
-                        <div>
-                            <h2>Marca</h2>
-                            <p>Marca</p>
-                        </div>
-                    </span>
-            </div>
-            <div class="produto"  onmouseover="popover(this)" onmouseleave="hidePopover(this)" value="1" onclick="selectProduto(this, '${produto}')" draggable="true" name="${produto}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
-                <img src="images/1.png" alt="">
-                <div>
-                    <h2>${produto} Bacana2</h2>
-                </div>
-                   <span class="popover flex column">
-                        <div>
-                            <h2>Nome</h2>
-                            <p>Nome</p>
-                        </div>
-                        <div>
-                            <h2>Marca</h2>
-                            <p>Marca</p>
-                        </div>
-                    </span>
-            </div>`
-        )
     }
+    $('.allPieces').append(getProdutos(produto, 3))
 }
 function listarProduto() {
     let produtoVal = $("#selectPecas").find(':selected').val();
@@ -76,52 +43,8 @@ function listarProduto() {
         .then(r => { return r.json })
         .catch(e => { return false });
     $('#listPecas').empty();
-    $('#listPecas').append(
-        `<div class="produto" onmouseover="popover(this)" onmouseleave="hidePopover(this)" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produtoVal}')" draggable="true" name="${produtoVal}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
-        <img src="images/1.png" alt="">
-        <div>
-        <h2>${produtoVal} Bacana1</h2>
-        </div>
-        <span class="popover flex column">
-        <div>
-            <h2>Nome</h2>
-            <p>Nome ${produtoVal} Bacana2</p>
-        </div>
-        <div>
-            <h2>Marca</h2>
-            <p>Marca MarcaX</p>
-        </div>
-    </span>
-        </div>
-        <div class="produto" onmouseover="popover(this)" onmouseleave="hidePopover(this)" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produtoVal}')" draggable="true" name="${produtoVal}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
-        <img src="images/1.png" alt="">
-        <div>
-        <h2>${produtoVal} Bacana2</h2>
-        </div>
-        <span class="popover flex column">
-        <div>
-            <h2>Nome</h2>
-            <p>Nome ${produtoVal} Bacana2</p>
-        </div>
-        <div>
-            <h2>Marca</h2>
-            <p>Marca MarcaX</p>
-        </div>
-    </span>
-        </div>`
+    $('#listPecas').append(getProdutos(produtoVal, 3)
     );
-    if (result) {
-        result.forEach(produto => {
-            $('#listPecas').append(
-                `<div class="produto" onmouseover="popover(this)" onmouseleave="hidePopover(this)" title="Nome = ${produto.nome} Marca = ${produto.marca}" value="${produto.id}" onclick="selectProduto(this, '${produtoVal}')" draggable="true">
-                <img src="${produto.img}" alt="">
-                <div>
-                    <h2>${produto.nome}</h2>
-                </div>
-            </div>`
-            );
-        });
-    }
 }
 
 listPecas = document.querySelector("#listPecas");
@@ -177,24 +100,24 @@ const cvv = document.querySelector("#cvv")
 const numCartao = document.querySelector("#numCartao")
 const validade = document.querySelector("#validade")
 
-cpf.addEventListener('keypress', () =>{
+cpf.addEventListener('keypress', () => {
     let inputLength = cpf.value.length
-    if(inputLength === 3 || inputLength === 7){
+    if (inputLength === 3 || inputLength === 7) {
         cpf.value += "."
     }
-    if(inputLength === 11){
+    if (inputLength === 11) {
         cpf.value += "-"
     }
 })
-numCartao.addEventListener('keypress', () =>{
+numCartao.addEventListener('keypress', () => {
     let inputLength = numCartao.value.length
-    if(inputLength === 4 || inputLength === 9 || inputLength === 14){
+    if (inputLength === 4 || inputLength === 9 || inputLength === 14) {
         numCartao.value += " "
     }
 })
-validade.addEventListener('keypress', () =>{
+validade.addEventListener('keypress', () => {
     let inputLength = validade.value.length
-    if(inputLength === 2){
+    if (inputLength === 2) {
         validade.value += "/"
     }
 })
@@ -291,7 +214,7 @@ function comprarMaquina() {
 }
 function loadCompra() {
     compras = document.cookie.split(";")
-    compra = JSON.parse(compras[compras.length-1]);
+    compra = JSON.parse(compras[compras.length - 1]);
     $("#dadosCompra").append(
         `<h2>Dados da compra</h2>
                 <p>Nome: ${compra.nome}</p>
@@ -302,6 +225,30 @@ function loadCompra() {
                 <p>cvv: ${compra.cvv}</p>
                 <p>Data Nascimento: ${compra.nasc}</p>`
     );
+}
+
+function getProdutos(produtoVal, qtd) {
+    let produto = ``
+    for (let i = 0; i < qtd; i++) {
+        produto +=
+            `<div class="produto" onmouseover="popover(this)" onmouseleave="hidePopover(this)" title="Nome = Fontes Marca = Marca" value="1" onclick="selectProduto(this, '${produtoVal}')" draggable="true" name="${produtoVal}" ondragstart="dragstart(this)" ondrag="drag(this)" ondragend="dragend(this)">
+            <img src="images/1.png" alt="">
+            <div>
+                <h2>${produtoVal} Bacana ${i + 1}</h2>
+            </div>
+            <span class="popover flex column">
+                <div>
+                    <h2>Nome</h2>
+                    <p>Nome ${produtoVal} Bacana ${i + 1}</p>
+                </div>
+                <div>
+                    <h2>Marca</h2>
+                    <p>Marca MarcaX</p>
+                </div>
+            </span>
+        </div>`
+    }
+    return produto;
 }
 
 
