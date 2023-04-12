@@ -80,6 +80,7 @@ nav ul a:hover {
   font-size: 2rem;
   border-radius: 5px 5px 0px 0px;
   background-color: blue;
+  color: white;
 }
 .modal .modal-card .modal-body {
   padding: 1rem;
@@ -95,6 +96,10 @@ nav ul a:hover {
 }
 .modal .modal-card .modal-body form div label {
   margin-bottom: 10px;
+}
+.modal .modal-card .modal-body form div input {
+  padding-left: 20px;
+  height: 30px;
 }
 .modal .modal-card .modal-body form button {
   background-color: blueviolet;
@@ -296,7 +301,18 @@ nav ul a:hover {
   margin: 0;
 }
 .buttonOptions p {
+  background-color: blueviolet;
+  color: white;
+  transition: 0.5s;
+  width: 200px;
   cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buttonOptions p:hover {
+  transform: scale(1.2);
 }
 
 button {

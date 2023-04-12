@@ -172,6 +172,30 @@ function verificarPecas() {
         $("option").attr("disabled", false)
     }
 }
+IMask(document.querySelector("#cpf"),{
+    mask: '000.000.000-00'
+})
+IMask(document.querySelector("#cvv"),{
+    mask: '000'
+})
+IMask(document.querySelector("#numCartao"),{
+    mask: '0000-0000-0000-0000'
+})
+IMask(document.querySelector("#validade"),{
+    mask: 'MM{/}YY',
+    blocks:{
+        MM:{
+            mask: IMask.MaskedRange,
+            from:1,
+            to:12
+        },
+        YY:{
+            mask: IMask.MaskedRange,
+            from:23,
+            to:33
+        }
+    }
+})
 function removerProduto(produto) {
     let button = $(produto).parent(".header").parent(".peca");
     let dropzone = $(button).find(".dropzone");
